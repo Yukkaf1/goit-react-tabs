@@ -53,6 +53,7 @@ export const ColorButton = styled.button`
   margin: 4px;
   border: none;
   cursor: pointer;
+
   transition: transform 250 ms lineal;
 
   &:active {

@@ -14,25 +14,27 @@ export class ColorPicker extends Component {
   static defaultProps = {};
 
   state = {
-    activeColorIdx: 3,
+    activeColorIdx: 0,
+  };
+
+  setActiveIdx = index => {
+    this.setState({ activeColorIdx: index });
   };
 
   render() {
+    const { activeColorIdx } = this.state;
+
     return (
       <Wrapper>
         <ColorPickerTitle>{this.props.title}</ColorPickerTitle>
+        <p>Color: {activeColorIdx}</p>
         <ColorSection>
           {this.props.colors.map(({ color, label }, index) => {
             return (
               <ColorButton
                 key={label}
-                style={{
-                  background: color,
-                  border:
-                    index === this.state.activeColorIdx
-                      ? '5px solid black'
-                      : 'none',
-                }}
+                style={{ background: color }}
+                onClick={() => this.setActiveIdx(index)}
               ></ColorButton>
             );
           })}
