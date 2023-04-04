@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { ColorPicker } from './ColorPicker/ColorPicker';
+import { Tabs } from './Tabs/Tabs';
+import data from '../data/data.json';
 
 export class App extends Component {
   state = {};
@@ -15,7 +17,9 @@ export class App extends Component {
 
     return (
       <>
-        <ColorPicker title="Color Picker" colors={colorPickerOptions} />
+        <Tabs items={data} />
+
+        {/* <ColorPicker title="Color Picker" colors={colorPickerOptions} /> */}
       </>
     );
   }
