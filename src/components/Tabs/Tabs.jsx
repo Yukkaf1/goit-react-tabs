@@ -8,6 +8,12 @@ export class Tabs extends Component {
     activeTabIdx: 0,
   };
 
+  // редко применяем - чтоб не перерендер делать или PureComponent
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.activeTabIdx !== this.state.activeTabIdx;
+  }
+
   setActiveIdx = index => {
     this.setState({ activeTabIdx: index });
   };
